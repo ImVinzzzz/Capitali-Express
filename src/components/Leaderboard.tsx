@@ -1,12 +1,12 @@
 // ============================================================================
 // components/Leaderboard.tsx
-// Schermata finale: podio "Arrivi" con il/i primo/i classificato/i in
-// evidenza (gestendo correttamente gli ex-equo) e classifica completa sotto.
+// Schermata finale: podio "Arrivi" strutturato come tabella dei voli
+// atterrati (Arrivals) del tabellone aeroportuale.
 // ============================================================================
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRotateLeft, faMedal, faTrophy } from '@fortawesome/free-solid-svg-icons';
-import { Player } from '../types';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRotateLeft, faPlane } from "@fortawesome/free-solid-svg-icons";
+import { Player } from "../types";
 
 interface LeaderboardProps {
   players: Player[];
@@ -34,71 +34,95 @@ function rankPlayers(players: Player[]): RankedPlayer[] {
 export default function Leaderboard({ players, onRestart }: LeaderboardProps) {
   const ranked = rankPlayers(players);
   const winners = ranked.filter((p) => p.rank === 1);
-  const others = ranked.filter((p) => p.rank !== 1);
   const isTie = winners.length > 1;
 
   return (
-    <div className="min-h-screen bg-[#0B1220] text-[#F3EEE2] flex items-center justify-center p-4 sm:p-6">
-      <div className="w-full max-w-xl">
-        <div className="text-center mb-6">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-[#F4A93E] mb-2">Tabellone arrivi</p>
-          <h1 className="font-mono font-black text-2xl sm:text-4xl uppercase tracking-tight">
-            {isTie ? 'Pari merito in vetta!' : 'Fine corsa'}
+    <div className="min-h-screen bg-[#030305] text-[#f3eee2] flex items-center justify-center p-4 sm:p-6 font-mono">
+      <div className="w-full max-w-xl border-4 border-[#1e293b] bg-[#090b10] rounded-lg shadow-[0_0_30px_rgba(0,0,0,0.8)] overflow-hidden">
+        {/* Header Giallo Arrivals */}
+        <div className="bg-[#ffe600] text-black py-3 px-4 flex items-center justify-between border-b-4 border-[#1e293b]">
+          <h1 className="text-xl sm:text-3xl font-black uppercase tracking-[0.2em] flex items-center gap-3">
+            <FontAwesomeIcon icon={faPlane} className="rotate-180 text-black" />
+            ARRIVALS / ARRIVI
           </h1>
+          <span className="text-sm sm:text-base font-bold bg-black text-[#ffe600] px-2 py-0.5 rounded">
+            FINE CORSA
+          </span>
         </div>
 
-        {/* Primo/i classificato/i */}
-        <div
-          className={`grid gap-3 mb-4 ${
-            winners.length > 1 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'
-          }`}
-        >
-          {winners.map((player) => (
-            <div
-              key={player.id}
-              className="relative rounded-2xl border-2 border-[#E8B84B] bg-gradient-to-b from-[#E8B84B]/15 to-transparent p-5 sm:p-6 text-center overflow-hidden"
-            >
-              <FontAwesomeIcon icon={faTrophy} className="text-[#E8B84B] text-3xl sm:text-4xl mb-2" />
-              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#E8B84B] mb-1">
-                {isTie ? '1\u00b0 posto \u2014 ex aequo' : '1\u00b0 posto'}
-              </p>
-              <h2 className="text-xl sm:text-2xl font-bold truncate">{player.name}</h2>
-              <p className="font-mono font-black text-2xl sm:text-3xl text-[#E8B84B] mt-1 tabular-nums">
-                {player.score} pt
-              </p>
+        <div className="p-4 sm:p-6 space-y-6">
+          {/* Tabellone Arrivi dei Giocatori */}
+          <section className="border border-[#1e293b] rounded bg-[#050608] p-4">
+            <div className="border-b border-[#1e293b] pb-3 mb-4">
+              <h2 className="text-xs sm:text-sm uppercase tracking-[0.2em] text-[#00d8ff] font-bold text-center">
+                {isTie ? "EX-AEQUO IN VETTA!" : "STATO ATTERRAGGIO PASSEGGERI"}
+              </h2>
             </div>
-          ))}
-        </div>
 
-        {/* Resto della classifica */}
-        {others.length > 0 && (
-          <div className="rounded-2xl border border-[#26344C] bg-[#101A2C] divide-y divide-[#26344C] overflow-hidden">
-            {others.map((player) => (
-              <div key={player.id} className="flex items-center justify-between px-4 sm:px-5 py-3 sm:py-3.5">
-                <div className="flex items-center gap-3">
-                  <span className="font-mono font-bold text-[#8C9BB5] w-7 text-center tabular-nums">
-                    {player.rank}
-                    {player.rank === 2 || player.rank === 3 ? (
-                      <FontAwesomeIcon icon={faMedal} className="ml-1 text-[#5B6B85] text-xs" />
-                    ) : null}
-                  </span>
-                  <span className="font-medium text-sm sm:text-base">{player.name}</span>
-                </div>
-                <span className="font-mono font-bold tabular-nums text-sm sm:text-base">{player.score} pt</span>
-              </div>
-            ))}
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse text-xs sm:text-sm">
+                <thead>
+                  <tr className="border-b border-[#1e293b] text-[#8c9bb5] text-[10px] uppercase tracking-widest">
+                    <th className="py-2 px-2">POS</th>
+                    <th className="py-2 px-2">VOLO</th>
+                    <th className="py-2 px-2">PASSEGGERO</th>
+                    <th className="py-2 px-2 text-right">PUNTI</th>
+                    <th className="py-2 px-2 text-right">STATO</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {ranked.map((player, idx) => {
+                    const isWinner = player.rank === 1;
+                    let remark = "ATTERRATO";
+                    if (player.rank === 1) {
+                      remark = "1° CLASSIFICATO";
+                    } else if (player.rank === 2) {
+                      remark = "2° CLASSIFICATO";
+                    } else if (player.rank === 3) {
+                      remark = "3° CLASSIFICATO";
+                    }
+
+                    return (
+                      <tr key={player.id} className="border-b border-[#1e293b]/50 hover:bg-[#090b10] transition-colors">
+                        <td className={"py-3 px-2 font-bold " + (isWinner ? "text-[#ffe600]" : "text-[#8c9bb5]")}>
+                          {String(player.rank).padStart(2, "0")}
+                        </td>
+                        <td className="py-3 px-2 text-[#00d8ff]">
+                          CX{" " + (101 + idx)}
+                        </td>
+                        <td className={"py-3 px-2 uppercase font-bold " + (isWinner ? "text-[#ffe600]" : "text-[#f3eee2]")}>
+                          {player.name}
+                        </td>
+                        <td className="py-3 px-2 text-right text-[#ffe600] font-bold tabular-nums">
+                          {player.score} pt
+                        </td>
+                        <td className="py-3 px-2 text-right">
+                          <span className={"font-bold text-[10px] sm:text-xs tracking-wider " + (isWinner ? "text-[#00ff66]" : "text-[#8c9bb5]")}>
+                            {remark}
+                          </span>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          {/* Pulsante Rigioca */}
+          <div>
+            <button
+              type="button"
+              onClick={onRestart}
+              className="w-full rounded bg-transparent border-2 border-[#ffe600] hover:bg-[#ffe600]/10 text-[#ffe600] font-black uppercase tracking-[0.2em] text-sm py-3.5 flex items-center justify-center gap-2 transition-colors shadow-[0_0_15px_rgba(255,230,0,0.1)]"
+            >
+              <FontAwesomeIcon icon={faArrowRotateLeft} />
+              NUOVA TRATTA / RE-FLIGHT
+            </button>
           </div>
-        )}
-
-        <button
-          type="button"
-          onClick={onRestart}
-          className="mt-6 w-full rounded-lg border border-[#3A4B66] hover:border-[#F4A93E] text-[#F3EEE2] hover:text-[#F4A93E] font-mono uppercase tracking-[0.2em] text-sm py-3 flex items-center justify-center gap-2 transition-colors"
-        >
-          <FontAwesomeIcon icon={faArrowRotateLeft} />
-          Nuova partita
-        </button>
+        </div>
       </div>
     </div>
   );
 }
+

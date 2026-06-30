@@ -27,7 +27,7 @@ const MAX_PLAYERS = 6;
 const DIFFICULTY_OPTIONS: { value: Difficulty; label: string; hint: string; icon: typeof faSeedling }[] = [
   { value: "facile", label: "Facile / Economy", hint: "Le grandi capitali note a tutti.", icon: faSeedling },
   { value: "medio", label: "Medio / Business", hint: "Bisogna un po' pensarci ma ci si riesce.", icon: faGaugeHigh },
-  { value: "avanzato", label: "Avanzato / First", hint: "Capitali quasi trabocchettoc... per i più esperti.", icon: faBolt },
+  { value: "avanzato", label: "Avanzato / First", hint: "Capitali trabocchetto... per i più esperti.", icon: faBolt },
 ];
 
 const MODE_OPTIONS: { value: GameMode; label: string; hint: string; icon: typeof faSignsPost }[] = [

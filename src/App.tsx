@@ -38,25 +38,26 @@ function TurnTransition({
   onContinue: () => void;
 }) {
   return (
-    <div className="min-h-screen bg-[#0B1220] text-[#F3EEE2] flex items-center justify-center p-4 sm:p-6">
-      <div className="w-full max-w-sm text-center rounded-2xl border border-[#26344C] bg-[#101A2C] p-8 sm:p-10">
-        <FontAwesomeIcon icon={faPlaneArrival} className="text-[#F4A93E] text-3xl mb-4" />
-        <p className="font-mono text-xs uppercase tracking-[0.25em] text-[#8C9BB5] mb-2">
-          Prossimo imbarco
+    <div className="min-h-screen bg-[#030305] text-[#f3eee2] flex items-center justify-center p-4 sm:p-6 font-mono">
+      <div className="w-full max-w-sm text-center border-4 border-[#1e293b] bg-[#090b10] rounded-lg p-6 sm:p-8 shadow-[0_0_30px_rgba(0,0,0,0.8)]">
+        <FontAwesomeIcon icon={faPlaneArrival} className="text-[#ffe600] text-3xl mb-4" />
+        <p className="text-xs uppercase tracking-[0.25em] text-[#00d8ff] font-bold mb-2">
+          BOARDING NOW / PROSSIMO IMBARCO
         </p>
-        <h2 className="text-2xl sm:text-3xl font-bold mb-6">Tocca a {playerName}</h2>
+        <h2 className="text-xl sm:text-2xl font-bold mb-6 text-[#ffe600] uppercase">Tocca a {playerName}</h2>
         <button
           type="button"
           onClick={onContinue}
-          className="w-full rounded-lg bg-[#F4A93E] text-[#0B1220] font-mono font-black uppercase tracking-[0.2em] text-sm py-3.5 flex items-center justify-center gap-2 transition-transform hover:scale-[1.01] active:scale-[0.99] motion-reduce:transition-none"
+          className="w-full rounded bg-[#ffe600] text-black font-black uppercase tracking-[0.2em] text-sm py-3.5 flex items-center justify-center gap-2 transition-transform hover:scale-[1.01] active:scale-[0.99] shadow-[0_0_15px_rgba(255,230,0,0.2)]"
         >
-          Inizia il turno
+          INIZIA TURNO / GO ▶
           <FontAwesomeIcon icon={faArrowRight} />
         </button>
       </div>
     </div>
   );
 }
+
 
 export default function App() {
   const {

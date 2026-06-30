@@ -25,14 +25,14 @@ const MIN_PLAYERS = 1;
 const MAX_PLAYERS = 6;
 
 const DIFFICULTY_OPTIONS: { value: Difficulty; label: string; hint: string; icon: typeof faSeedling }[] = [
-  { value: "facile", label: "Facile / Economy", hint: "Grandi capitali note a tutti", icon: faSeedling },
-  { value: "medio", label: "Medio / Business", hint: "Bisogna un po' pensarci", icon: faGaugeHigh },
-  { value: "avanzato", label: "Avanzato / First", hint: "Capitali trabocchetto", icon: faBolt },
+  { value: "facile", label: "Facile / Economy", hint: "Grandi capitali note a tutti.", icon: faSeedling },
+  { value: "medio", label: "Medio / Business", hint: "Bisogna un po' pensarci, am ci si riesce.", icon: faGaugeHigh },
+  { value: "avanzato", label: "Avanzato / First", hint: "Capitali trabocchettoc... quasi impossibili.", icon: faBolt },
 ];
 
 const MODE_OPTIONS: { value: GameMode; label: string; hint: string; icon: typeof faSignsPost }[] = [
-  { value: "capital", label: "Riconosci la capitale", hint: "Vedi il paese -> indovini la capitale", icon: faSignsPost },
-  { value: "country", label: "Riconosci il paese", hint: "Vedi la capitale -> indovini il paese", icon: faEarthAmericas },
+  { value: "capital", label: "Riconosci la capitale", hint: "Vedi il paese > indovini la capitale", icon: faSignsPost },
+  { value: "country", label: "Riconosci il paese", hint: "Vedi la capitale > indovini il paese", icon: faEarthAmericas },
 ];
 
 interface GameSetupProps {
@@ -206,7 +206,7 @@ export default function GameSetup({ onStart }: GameSetupProps) {
           <section className="border border-[#1e293b] rounded bg-[#050608] p-4">
             <h2 className="flex items-center gap-2 text-xs sm:text-sm uppercase tracking-[0.2em] text-[#00d8ff] font-bold border-b border-[#1e293b] pb-2 mb-3">
               <FontAwesomeIcon icon={faRoute} />
-              ROTA / TRATTA DI GIOCO
+              ROTTA / TRATTA DI GIOCO
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {MODE_OPTIONS.map((opt) => {

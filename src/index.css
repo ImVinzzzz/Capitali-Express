@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Keyframes delle animazioni usate dai componenti tramite le classi
+ * Tailwind arbitrarie:
+ *   animate-[flap-pop_0.35s_ease-out]   → pop sul punteggio ad ogni punto
+ *   animate-[bar-pulse_1s_ease-in-out_infinite] → lampeggio timer urgente
+ *
+ * Definirle qui (anzichè solo nel <style> JSX di App.tsx) garantisce che
+ * siano presenti sin dal primo paint, indipendentemente dall'ordine di
+ * idratazione React.
+ */
+@keyframes flap-pop {
+  0%   { transform: scale(0.82); opacity: 0.3; }
+  60%  { transform: scale(1.08); opacity: 1;   }
+  100% { transform: scale(1);    opacity: 1;   }
+}
+
+@keyframes bar-pulse {
+  0%, 100% { opacity: 1;   }
+  50%       { opacity: 0.5; }
+}

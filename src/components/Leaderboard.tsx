@@ -36,7 +36,7 @@ export default function Leaderboard({ players, onRestart }: LeaderboardProps) {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
-    const audio = new Audio("/sounds/winner.mp3");
+    const audio = new Audio(import.meta.env.BASE_URL + "sounds/winner.mp3");
     audio.play().catch((e) => console.log("Errore riproduzione winner.mp3:", e));
 
     const timer = setTimeout(() => {

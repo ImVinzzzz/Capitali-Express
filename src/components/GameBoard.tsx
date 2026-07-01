@@ -151,7 +151,7 @@ export default function GameBoard({
   onSelect,
 }: GameBoardProps) {
   useEffect(() => {
-    const audio = new Audio("/sounds/timer.mp3");
+    const audio = new Audio(import.meta.env.BASE_URL + "sounds/timer.mp3");
     audio.play().catch((e) => console.log("Errore riproduzione timer.mp3:", e));
     return () => {
       audio.pause();

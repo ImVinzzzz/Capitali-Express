@@ -121,7 +121,7 @@ export const COUNTRIES: CountryData[] = [
 
 
   // ==========================================================================
-  // AVANZATO — 89 paesi - FIRST CLASS
+  // AVANZATO — 90 paesi - FIRST CLASS
   // ==========================================================================
 
   // Europa
@@ -213,12 +213,12 @@ export const COUNTRIES: CountryData[] = [
   { id: 'np', country: 'Nepal',        capital: 'Kathmandu',            difficulty: 'avanzato', flagCode: 'NP' },
   { id: 'om', country: 'Oman',         capital: 'Mascate',              difficulty: 'avanzato', flagCode: 'OM' },
   { id: 'pw', country: 'Palau',        capital: 'Ngerulmud',            difficulty: 'avanzato', flagCode: 'PW' },
-  // da SRY LANKA in poi - inserire OSSEZIA con flagCode GE
+  { id: 'ox', country: 'Ossezia del Sud',      capital: 'Tskhinvali',   difficulty: 'avanzato', flagCode: 'GE' },
   { id: 'lk', country: 'Sri Lanka',    capital: 'Sri Jayawardenepura Kotte', difficulty: 'avanzato', flagCode: 'LK' },
   { id: 'tj', country: 'Tagikistan',   capital: 'Dushanbe',             difficulty: 'avanzato', flagCode: 'TJ' },
   { id: 'tl', country: 'Timor Est',    capital: 'Dili',                 difficulty: 'avanzato', flagCode: 'TL' },
   { id: 'tm', country: 'Turkmenistan', capital: 'Ashgabat',             difficulty: 'avanzato', flagCode: 'TM' },
-  { id: 'uz', country: 'Uzbekistan',   capital: 'Tashkent',             difficulty: 'avanzato', flagCode: 'UZ' },
+  { id: 'uz', country: '',   capital: 'Tashkent',             difficulty: 'avanzato', flagCode: 'UZ' },
   { id: 'ye', country: 'Yemen',        capital: "Sana'a",               difficulty: 'avanzato', flagCode: 'YE' },
 
   // Oceania

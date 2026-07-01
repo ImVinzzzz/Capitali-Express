@@ -25,7 +25,7 @@ const MIN_PLAYERS = 1;
 const MAX_PLAYERS = 6;
 
 const DIFFICULTY_OPTIONS: { value: Difficulty; label: string; hint: string; icon: typeof faSeedling }[] = [
-  { value: "facile", label: "ECONOMY CLASS", hint: "Le grandi capitali note a tutti... più o meno!", icon: faSeedling },
+  { value: "facile", label: "ECONOMY CLASS", hint: "Le grandi capitali note a tutti...", icon: faSeedling },
   { value: "avanzato", label: "FIRST CLASS", hint: "Capitali impossibili... per i più esperti!", icon: faBolt },
 ];
 

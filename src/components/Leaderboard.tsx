@@ -36,14 +36,19 @@ export default function Leaderboard({ players, onRestart }: LeaderboardProps) {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
-    const audio = new Audio(import.meta.env.BASE_URL + "sounds/winner.mp3");
-    audio.play().catch((e) => console.log("Errore riproduzione winner.mp3:", e));
+    const urlWinner = import.meta.env.BASE_URL + "sounds/winner.mp3";
+    console.log("Leaderboard: creazione/avvio di winnerAudio con: " + urlWinner);
+    const audio = new Audio(urlWinner);
+    audio.play()
+      .then(() => console.log("Leaderboard: riproduzione winnerAudio avviata con successo"))
+      .catch((e) => console.log("Leaderboard: Errore riproduzione winnerAudio: " + e.message, e));
 
     const timer = setTimeout(() => {
       setShowButton(true);
     }, 15000);
 
     return () => {
+      console.log("Leaderboard: arresto di winnerAudio");
       audio.pause();
       audio.currentTime = 0;
       clearTimeout(timer);

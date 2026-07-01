@@ -21,8 +21,6 @@ import {
   GameMode,
   GamePhase,
   Player,
-  SCORE_CORRECT,
-  SCORE_WRONG,
   TURN_DURATION_SECONDS,
 } from './types';
 
@@ -239,10 +237,25 @@ export function useGameState(): UseGameStateResult {
       const isCorrect = chosen.isCorrect;
       setFeedback({ status: isCorrect ? 'correct' : 'incorrect', selectedOptionId: optionId });
 
+      let scoreChange = 0;
+      if (mode === "capital") {
+        if (difficulty === "facile") {
+          scoreChange = isCorrect ? 25 : -10;
+        } else {
+          scoreChange = isCorrect ? 50 : -15;
+        }
+      } else {
+        if (difficulty === "facile") {
+          scoreChange = isCorrect ? 50 : -15;
+        } else {
+          scoreChange = isCorrect ? 150 : -25;
+        }
+      }
+
       setPlayers((prev) =>
         prev.map((p, idx) =>
           idx === currentPlayerIndex
-            ? { ...p, score: p.score + (isCorrect ? SCORE_CORRECT : SCORE_WRONG) }
+            ? { ...p, score: p.score + scoreChange }
             : p,
         ),
       );
@@ -263,6 +276,7 @@ export function useGameState(): UseGameStateResult {
       timeLeft,
       currentQuestion,
       mode,
+      difficulty,
       currentPlayerIndex,
       clearFeedbackTimeout,
       generateNextQuestion,

@@ -79,9 +79,4 @@ export interface GameConfig {
 /** Durata di un turno, in secondi. */
 export const TURN_DURATION_SECONDS = 60;
 
-/** Durata del feedback visivo verde/rosso dopo una risposta, in ms. */
 export const FEEDBACK_DURATION_MS = 500;
-
-/** Punteggio assegnato per risposta corretta/errata. */
-export const SCORE_CORRECT = 10;
-export const SCORE_WRONG = -5;

@@ -1,6 +1,6 @@
 // ============================================================================
 // mockData.ts
-// Database completo di paesi e capitali mondiali (~191 stati sovrani),
+// Database completo di paesi e capitali mondiali,
 // suddiviso per livello di difficoltà:
 // ============================================================================
 
@@ -8,7 +8,7 @@ import type { CountryData, Difficulty } from './types';
 export const COUNTRIES: CountryData[] = [
 
   // ==========================================================================
-  // FACILE / MEDIO — 97 paesi - BUSINESS CLASS
+  // FACILE / MEDIO — 98 paesi - BUSINESS CLASS
   // ==========================================================================
 
   // Europa
@@ -113,6 +113,7 @@ export const COUNTRIES: CountryData[] = [
   { id: 'ph', country: 'Filippine',           capital: 'Manila',        difficulty: 'facile', flagCode: 'PH' },
   { id: 'id', country: 'Indonesia',           capital: 'Giacarta',      difficulty: 'facile', flagCode: 'ID' },
   { id: 'tw', country: 'Taiwan',              capital: 'Taipei',        difficulty: 'facile', flagCode: 'TW' },
+  { id: 'kw', country: 'Emirato del Kuwait',  capital: 'Al Kuwait',     difficulty: 'facile', flagCode: 'KW' },
 
   // Oceania
   { id: 'au', country: 'Australia',   capital: 'Canberra',   difficulty: 'facile', flagCode: 'AU' },
@@ -120,7 +121,7 @@ export const COUNTRIES: CountryData[] = [
 
 
   // ==========================================================================
-  // AVANZATO — 91 paesi - FIRST CLASS
+  // AVANZATO — 89 paesi - FIRST CLASS
   // ==========================================================================
 
   // Europa
@@ -203,15 +204,14 @@ export const COUNTRIES: CountryData[] = [
   { id: 'bn', country: 'Brunei',       capital: 'Bandar Seri Begawan',  difficulty: 'avanzato', flagCode: 'BN' },
   { id: 'kh', country: 'Cambogia',     capital: 'Phnom Penh',           difficulty: 'avanzato', flagCode: 'KH' },
   { id: 'ge', country: 'Georgia',      capital: 'Tbilisi',              difficulty: 'avanzato', flagCode: 'GE' },
-  { id: 'il', country: 'Israele',      capital: 'Gerusalemme',          difficulty: 'avanzato', flagCode: 'IL' },
   { id: 'kz', country: 'Kazakistan',   capital: 'Astana',               difficulty: 'avanzato', flagCode: 'KZ' },
   { id: 'kg', country: 'Kirghizistan', capital: 'Bishkek',              difficulty: 'avanzato', flagCode: 'KG' },
-  { id: 'kw', country: 'Kuwait',       capital: 'Kuwait',               difficulty: 'avanzato', flagCode: 'KW' },
   { id: 'la', country: 'Laos',         capital: 'Vientiane',            difficulty: 'avanzato', flagCode: 'LA' },
   { id: 'mv', country: 'Maldive',      capital: 'Malé',                 difficulty: 'avanzato', flagCode: 'MV' },
   { id: 'mn', country: 'Mongolia',     capital: 'Ulaanbaatar',          difficulty: 'avanzato', flagCode: 'MN' },
   { id: 'mm', country: 'Myanmar',      capital: 'Naypyidaw',            difficulty: 'avanzato', flagCode: 'MM' },
   { id: 'np', country: 'Nepal',        capital: 'Kathmandu',            difficulty: 'avanzato', flagCode: 'NP' },
+  // da OMAN in poi
   { id: 'om', country: 'Oman',         capital: 'Mascate',              difficulty: 'avanzato', flagCode: 'OM' },
   { id: 'pw', country: 'Palau',        capital: 'Ngerulmud',            difficulty: 'avanzato', flagCode: 'PW' },
   { id: 'lk', country: 'Sri Lanka',    capital: 'Sri Jayawardenepura Kotte', difficulty: 'avanzato', flagCode: 'LK' },

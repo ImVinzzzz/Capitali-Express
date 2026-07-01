@@ -4,7 +4,7 @@
 // ============================================================================
 
 /** Livelli di difficoltà selezionabili in fase di setup. */
-export type Difficulty = 'facile' | 'medio' | 'avanzato';
+export type Difficulty = 'facile' | 'avanzato';
 
 /**
  * Modalità di gioco:

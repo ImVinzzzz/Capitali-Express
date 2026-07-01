@@ -8,7 +8,7 @@ import type { CountryData, Difficulty } from './types';
 export const COUNTRIES: CountryData[] = [
 
   // ==========================================================================
-  // FACILE / MEDIO — 96 paesi - BUSINESS CLASS
+  // FACILE / MEDIO — 97 paesi - BUSINESS CLASS
   // ==========================================================================
 
   // Europa
@@ -86,6 +86,7 @@ export const COUNTRIES: CountryData[] = [
   { id: 'et', country: 'Etiopia',     capital: 'Addis Abeba',   difficulty: 'facile', flagCode: 'ET' },
   { id: 'sd', country: 'Sudan',       capital: 'Khartum',       difficulty: 'facile', flagCode: 'SD' },
   { id: 'sn', country: 'Senegal',     capital: 'Dakar',         difficulty: 'facile', flagCode: 'SN' },
+  { id: 'dj', country: 'Gibuti',      capital: 'Gibuti',        difficulty: 'facile', flagCode: 'DJ' },
 
   // Asia
   { id: 'ru', country: 'Russia',          capital: 'Mosca',      difficulty: 'facile', flagCode: 'RU' },
@@ -119,7 +120,7 @@ export const COUNTRIES: CountryData[] = [
 
 
   // ==========================================================================
-  // AVANZATO — 92 paesi - FIRST CLASS
+  // AVANZATO — 91 paesi - FIRST CLASS
   // ==========================================================================
 
   // Europa
@@ -160,17 +161,16 @@ export const COUNTRIES: CountryData[] = [
   { id: 'cf', country: 'Repubblica Centrafricana', capital: 'Bangui',          difficulty: 'avanzato', flagCode: 'CF' },
   { id: 'td', country: 'Ciad',                     capital: "N'Djamena",       difficulty: 'avanzato', flagCode: 'TD' },
   { id: 'km', country: 'Comore',                   capital: 'Moroni',          difficulty: 'avanzato', flagCode: 'KM' },
-  { id: 'cg', country: 'Congo',                    capital: 'Brazzaville',     difficulty: 'avanzato', flagCode: 'CG' },
+  { id: 'cg', country: 'Repubblica del Congo',     capital: 'Brazzaville',     difficulty: 'avanzato', flagCode: 'CG' },
   { id: 'cd', country: 'Congo (RDC)',              capital: 'Kinshasa',        difficulty: 'avanzato', flagCode: 'CD' },
   { id: 'ci', country: "Costa d'Avorio",           capital: 'Yamoussoukro',    difficulty: 'avanzato', flagCode: 'CI' },
-  { id: 'dj', country: 'Gibuti',                   capital: 'Gibuti',          difficulty: 'avanzato', flagCode: 'DJ' },
   { id: 'er', country: 'Eritrea',                  capital: 'Asmara',          difficulty: 'avanzato', flagCode: 'ER' },
-  { id: 'sz', country: 'Eswatini',                 capital: 'Mbabane',         difficulty: 'avanzato', flagCode: 'SZ' },
+  { id: 'sz', country: 'eSwatini',                 capital: 'Mbabane',         difficulty: 'avanzato', flagCode: 'SZ' },
   { id: 'ga', country: 'Gabon',                    capital: 'Libreville',      difficulty: 'avanzato', flagCode: 'GA' },
   { id: 'gm', country: 'Gambia',                   capital: 'Banjul',          difficulty: 'avanzato', flagCode: 'GM' },
   { id: 'gh', country: 'Ghana',                    capital: 'Accra',           difficulty: 'avanzato', flagCode: 'GH' },
   { id: 'gn', country: 'Guinea',                   capital: 'Conakry',         difficulty: 'avanzato', flagCode: 'GN' },
-  { id: 'gq', country: 'Guinea Equatoriale',       capital: 'Malabo',          difficulty: 'avanzato', flagCode: 'GQ' },
+  { id: 'gq', country: 'Guinea Equatoriale',       capital: 'Ciudad de la Paz',    difficulty: 'avanzato', flagCode: 'GQ' },
   { id: 'gw', country: 'Guinea-Bissau',            capital: 'Bissau',          difficulty: 'avanzato', flagCode: 'GW' },
   { id: 'ls', country: 'Lesotho',                  capital: 'Maseru',          difficulty: 'avanzato', flagCode: 'LS' },
   { id: 'lr', country: 'Liberia',                  capital: 'Monrovia',        difficulty: 'avanzato', flagCode: 'LR' },

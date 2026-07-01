@@ -36,7 +36,7 @@ export default function Leaderboard({ players, onRestart }: LeaderboardProps) {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
-    const urlWinner = import.meta.env.BASE_URL + "sounds/winner.mp3";
+    const urlWinner = import.meta.env.BASE_URL + "assets/sounds/winner.mp3";
     console.log("Leaderboard: creazione/avvio di winnerAudio con: " + urlWinner);
     const audio = new Audio(urlWinner);
     audio.play()

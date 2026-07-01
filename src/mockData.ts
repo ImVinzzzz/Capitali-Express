@@ -2,17 +2,13 @@
 // mockData.ts
 // Database completo di paesi e capitali mondiali (~191 stati sovrani),
 // suddiviso per livello di difficoltà:
-//   FACILE    (24)  — capitali note a chiunque abbia fatto le medie
-//   MEDIO     (56)  — richiedono un po' di geografia
-//   AVANZATO (111)  — capitali insidiose, trabocchetto o poco note
 // ============================================================================
 
 import type { CountryData, Difficulty } from './types';
-
 export const COUNTRIES: CountryData[] = [
 
   // ==========================================================================
-  // FACILE / MEDIO — 96 paesi
+  // FACILE / MEDIO — 96 paesi - BUSINESS CLASS
   // ==========================================================================
 
   // Europa
@@ -123,7 +119,7 @@ export const COUNTRIES: CountryData[] = [
 
 
   // ==========================================================================
-  // AVANZATO — 92 paesi
+  // AVANZATO — 92 paesi - FIRST CLASS
   // ==========================================================================
 
   // Europa

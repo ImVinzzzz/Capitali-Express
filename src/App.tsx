@@ -85,10 +85,15 @@ export default function App() {
   }, [phase]);
 
   useEffect(() => {
-    const playIntro = () => {
-      if (hasPlayedIntroRef.current) return;
+    const playIntro = (e: Event) => {
+      console.log("playIntro triggerato da evento: " + e.type + ", phase: " + phaseRef.current);
+      if (hasPlayedIntroRef.current) {
+        console.log("playIntro ignorato: intro gia riprodotta");
+        return;
+      }
 
       if (phaseRef.current !== "setup") {
+        console.log("playIntro interrotto: phase non e setup");
         hasPlayedIntroRef.current = true;
         cleanup();
         return;
@@ -97,26 +102,39 @@ export default function App() {
       hasPlayedIntroRef.current = true;
       cleanup();
 
-      const toneAudio = new Audio(import.meta.env.BASE_URL + "sounds/tone.mp3");
+      const urlTone = import.meta.env.BASE_URL + "sounds/tone.mp3";
+      console.log("Creazione audio per tone: " + urlTone);
+      const toneAudio = new Audio(urlTone);
+      console.log("Chiamata play() su toneAudio");
       toneAudio.play().then(() => {
+        console.log("Riproduzione toneAudio avviata con successo");
         toneAudio.addEventListener("ended", () => {
-          const pilotAudio = new Audio(import.meta.env.BASE_URL + "sounds/pilot.mp3");
-          pilotAudio.play().catch((e) => console.log("Errore audio pilot:", e));
+          console.log("toneAudio terminato, creazione pilotAudio");
+          const urlPilot = import.meta.env.BASE_URL + "sounds/pilot.mp3";
+          const pilotAudio = new Audio(urlPilot);
+          console.log("Chiamata play() su pilotAudio: " + urlPilot);
+          pilotAudio.play().then(() => {
+            console.log("Riproduzione pilotAudio avviata con successo");
+          }).catch((err) => {
+            console.log("Errore riproduzione pilotAudio: " + err.message, err);
+          });
         });
-      }).catch((e) => {
-        console.log("Errore audio tone:", e);
+      }).catch((err) => {
+        console.log("Errore riproduzione toneAudio: " + err.message, err);
         hasPlayedIntroRef.current = false;
         setupListeners();
       });
     };
 
     const setupListeners = () => {
+      console.log("Registrazione listener di sblocco audio su click, keydown, touchstart");
       document.addEventListener("click", playIntro);
       document.addEventListener("keydown", playIntro);
       document.addEventListener("touchstart", playIntro);
     };
 
     const cleanup = () => {
+      console.log("Rimozione listener di sblocco audio");
       document.removeEventListener("click", playIntro);
       document.removeEventListener("keydown", playIntro);
       document.removeEventListener("touchstart", playIntro);

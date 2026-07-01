@@ -164,11 +164,15 @@ export function useGameState(): UseGameStateResult {
       setTimeLeft(TURN_DURATION_SECONDS);
       generateNextQuestion(config.mode);
 
+      const urlTimer = import.meta.env.BASE_URL + "sounds/timer.mp3";
+      console.log("startGame: creazione/avvio di timerAudio con: " + urlTimer);
       if (!timerAudioRef.current) {
-        timerAudioRef.current = new Audio(import.meta.env.BASE_URL + "sounds/timer.mp3");
+        timerAudioRef.current = new Audio(urlTimer);
       }
       timerAudioRef.current.currentTime = 0;
-      timerAudioRef.current.play().catch((e) => console.log("Errore audio timer:", e));
+      timerAudioRef.current.play()
+        .then(() => console.log("startGame: riproduzione timerAudio avviata con successo"))
+        .catch((e) => console.log("startGame: Errore riproduzione timerAudio: " + e.message, e));
 
       setPhase('playing');
     },
@@ -183,6 +187,7 @@ export function useGameState(): UseGameStateResult {
     );
     setFeedback({ status: 'idle', selectedOptionId: null });
 
+    console.log("endTurn: arresto di timerAudio");
     if (timerAudioRef.current) {
       timerAudioRef.current.pause();
       timerAudioRef.current.currentTime = 0;
@@ -270,11 +275,15 @@ export function useGameState(): UseGameStateResult {
     setTimeLeft(TURN_DURATION_SECONDS);
     generateNextQuestion(mode);
 
+    const urlTimer = import.meta.env.BASE_URL + "sounds/timer.mp3";
+    console.log("beginNextTurn: creazione/avvio di timerAudio con: " + urlTimer);
     if (!timerAudioRef.current) {
-      timerAudioRef.current = new Audio(import.meta.env.BASE_URL + "sounds/timer.mp3");
+      timerAudioRef.current = new Audio(urlTimer);
     }
     timerAudioRef.current.currentTime = 0;
-    timerAudioRef.current.play().catch((e) => console.log("Errore audio timer:", e));
+    timerAudioRef.current.play()
+      .then(() => console.log("beginNextTurn: riproduzione timerAudio avviata con successo"))
+      .catch((e) => console.log("beginNextTurn: Errore riproduzione timerAudio: " + e.message, e));
 
     setPhase('playing');
   }, [mode, generateNextQuestion]);
@@ -292,6 +301,7 @@ export function useGameState(): UseGameStateResult {
     queueRef.current = [];
     poolRef.current = [];
 
+    console.log("resetGame: arresto di timerAudio");
     if (timerAudioRef.current) {
       timerAudioRef.current.pause();
       timerAudioRef.current.currentTime = 0;

@@ -78,39 +78,56 @@ export default function App() {
   } = useGameState();
 
   const hasPlayedIntroRef = useRef(false);
+  const phaseRef = useRef(phase);
 
   useEffect(() => {
-    if (phase === "setup" && !hasPlayedIntroRef.current) {
-      const playIntro = () => {
-        if (hasPlayedIntroRef.current) return;
+    phaseRef.current = phase;
+  }, [phase]);
+
+  useEffect(() => {
+    const playIntro = () => {
+      if (hasPlayedIntroRef.current) return;
+
+      if (phaseRef.current !== "setup") {
         hasPlayedIntroRef.current = true;
+        cleanup();
+        return;
+      }
 
-        document.removeEventListener("click", playIntro);
-        document.removeEventListener("keydown", playIntro);
+      hasPlayedIntroRef.current = true;
+      cleanup();
 
-        const toneAudio = new Audio(import.meta.env.BASE_URL + "sounds/tone.mp3");
-        toneAudio.play().then(() => {
-          toneAudio.addEventListener("ended", () => {
-            const pilotAudio = new Audio(import.meta.env.BASE_URL + "sounds/pilot.mp3");
-            pilotAudio.play().catch((e) => console.log("Errore audio pilot:", e));
-          });
-        }).catch((e) => {
-          console.log("Errore audio tone:", e);
-          hasPlayedIntroRef.current = false;
-          document.addEventListener("click", playIntro);
-          document.addEventListener("keydown", playIntro);
+      const toneAudio = new Audio(import.meta.env.BASE_URL + "sounds/tone.mp3");
+      toneAudio.play().then(() => {
+        toneAudio.addEventListener("ended", () => {
+          const pilotAudio = new Audio(import.meta.env.BASE_URL + "sounds/pilot.mp3");
+          pilotAudio.play().catch((e) => console.log("Errore audio pilot:", e));
         });
-      };
+      }).catch((e) => {
+        console.log("Errore audio tone:", e);
+        hasPlayedIntroRef.current = false;
+        setupListeners();
+      });
+    };
 
+    const setupListeners = () => {
       document.addEventListener("click", playIntro);
       document.addEventListener("keydown", playIntro);
+      document.addEventListener("touchstart", playIntro);
+    };
 
-      return () => {
-        document.removeEventListener("click", playIntro);
-        document.removeEventListener("keydown", playIntro);
-      };
+    const cleanup = () => {
+      document.removeEventListener("click", playIntro);
+      document.removeEventListener("keydown", playIntro);
+      document.removeEventListener("touchstart", playIntro);
+    };
+
+    if (!hasPlayedIntroRef.current) {
+      setupListeners();
     }
-  }, [phase]);
+
+    return cleanup;
+  }, []);
 
   return (
     <>

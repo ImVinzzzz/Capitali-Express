@@ -111,6 +111,7 @@ export function useGameState(): UseGameStateResult {
   const queueRef = useRef<CountryData[]>([]);
   const poolRef = useRef<CountryData[]>([]);
   const feedbackTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const timerAudioRef = useRef<HTMLAudioElement | null>(null);
 
   // Specchio "live" di timeLeft/phase, letto dentro al setTimeout del
   // feedback (500ms) per evitare di agire su un valore ormai stantio nel
@@ -162,6 +163,13 @@ export function useGameState(): UseGameStateResult {
       setFeedback({ status: 'idle', selectedOptionId: null });
       setTimeLeft(TURN_DURATION_SECONDS);
       generateNextQuestion(config.mode);
+
+      if (!timerAudioRef.current) {
+        timerAudioRef.current = new Audio(import.meta.env.BASE_URL + "sounds/timer.mp3");
+      }
+      timerAudioRef.current.currentTime = 0;
+      timerAudioRef.current.play().catch((e) => console.log("Errore audio timer:", e));
+
       setPhase('playing');
     },
     [clearFeedbackTimeout, generateNextQuestion],
@@ -174,6 +182,11 @@ export function useGameState(): UseGameStateResult {
       prev.map((p, idx) => (idx === currentPlayerIndex ? { ...p, hasPlayed: true } : p)),
     );
     setFeedback({ status: 'idle', selectedOptionId: null });
+
+    if (timerAudioRef.current) {
+      timerAudioRef.current.pause();
+      timerAudioRef.current.currentTime = 0;
+    }
 
     const isLastPlayer = currentPlayerIndex >= players.length - 1;
     if (isLastPlayer) {
@@ -199,6 +212,15 @@ export function useGameState(): UseGameStateResult {
 
   // Pulizia di eventuali timeout pendenti allo smontaggio del componente.
   useEffect(() => clearFeedbackTimeout, [clearFeedbackTimeout]);
+
+  // Clean-up dell'audio allo smontaggio del componente
+  useEffect(() => {
+    return () => {
+      if (timerAudioRef.current) {
+        timerAudioRef.current.pause();
+      }
+    };
+  }, []);
 
   const selectAnswer = useCallback(
     (optionId: string) => {
@@ -247,6 +269,13 @@ export function useGameState(): UseGameStateResult {
     setFeedback({ status: 'idle', selectedOptionId: null });
     setTimeLeft(TURN_DURATION_SECONDS);
     generateNextQuestion(mode);
+
+    if (!timerAudioRef.current) {
+      timerAudioRef.current = new Audio(import.meta.env.BASE_URL + "sounds/timer.mp3");
+    }
+    timerAudioRef.current.currentTime = 0;
+    timerAudioRef.current.play().catch((e) => console.log("Errore audio timer:", e));
+
     setPhase('playing');
   }, [mode, generateNextQuestion]);
 
@@ -262,6 +291,11 @@ export function useGameState(): UseGameStateResult {
     setFeedback({ status: 'idle', selectedOptionId: null });
     queueRef.current = [];
     poolRef.current = [];
+
+    if (timerAudioRef.current) {
+      timerAudioRef.current.pause();
+      timerAudioRef.current.currentTime = 0;
+    }
   }, [clearFeedbackTimeout]);
 
   const currentPlayer = players[currentPlayerIndex] ?? null;

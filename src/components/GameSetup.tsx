@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBolt,
   faEarthAmericas,
-  faGaugeHigh,
   faMinus,
   faPlane,
   faPlus,
@@ -25,9 +24,8 @@ const MIN_PLAYERS = 1;
 const MAX_PLAYERS = 6;
 
 const DIFFICULTY_OPTIONS: { value: Difficulty; label: string; hint: string; icon: typeof faSeedling }[] = [
-  { value: "facile", label: "Facile / Economy", hint: "Le grandi capitali note a tutti.", icon: faSeedling },
-  { value: "medio", label: "Medio / Business", hint: "Bisogna un po' pensarci ma ci si riesce.", icon: faGaugeHigh },
-  { value: "avanzato", label: "Avanzato / First", hint: "Capitali trabocchetto... per i più esperti.", icon: faBolt },
+  { value: "facile", label: "ECONOMY CLASS", hint: "Le grandi capitali note a tutti... più o meno!", icon: faSeedling },
+  { value: "avanzato", label: "FIRST CLASS", hint: "Capitali impossibili... per i più esperti!", icon: faBolt },
 ];
 
 const MODE_OPTIONS: { value: GameMode; label: string; hint: string; icon: typeof faSignsPost }[] = [
@@ -46,7 +44,7 @@ function makeDefaultNames(count: number): string[] {
 export default function GameSetup({ onStart }: GameSetupProps) {
   const [playerCount, setPlayerCount] = useState(2);
   const [names, setNames] = useState<string[]>(makeDefaultNames(2));
-  const [difficulty, setDifficulty] = useState<Difficulty>("medio");
+  const [difficulty, setDifficulty] = useState<Difficulty>("facile");
   const [mode, setMode] = useState<GameMode>("capital");
 
   const canStart = useMemo(
@@ -173,10 +171,10 @@ export default function GameSetup({ onStart }: GameSetupProps) {
           {/* Sezione classe di viaggio / difficoltà */}
           <section className="border border-[#1e293b] rounded bg-[#050608] p-4">
             <h2 className="flex items-center gap-2 text-xs sm:text-sm uppercase tracking-[0.2em] text-[#00d8ff] font-bold border-b border-[#1e293b] pb-2 mb-3">
-              <FontAwesomeIcon icon={faGaugeHigh} />
+              <FontAwesomeIcon icon={faRoute} />
               CLASSE DI VIAGGIO / DIFFICOLTÀ
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {DIFFICULTY_OPTIONS.map((opt) => {
                 const active = difficulty === opt.value;
                 return (

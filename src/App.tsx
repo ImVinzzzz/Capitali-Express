@@ -88,10 +88,10 @@ export default function App() {
         document.removeEventListener("click", playIntro);
         document.removeEventListener("keydown", playIntro);
 
-        const toneAudio = new Audio("/sounds/tone.mp3");
+        const toneAudio = new Audio(import.meta.env.BASE_URL + "sounds/tone.mp3");
         toneAudio.play().then(() => {
           toneAudio.addEventListener("ended", () => {
-            const pilotAudio = new Audio("/sounds/pilot.mp3");
+            const pilotAudio = new Audio(import.meta.env.BASE_URL + "sounds/pilot.mp3");
             pilotAudio.play().catch((e) => console.log("Errore audio pilot:", e));
           });
         }).catch((e) => {

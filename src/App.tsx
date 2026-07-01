@@ -74,7 +74,6 @@ export default function App() {
     startGame,
     selectAnswer,
     beginNextTurn,
-    resetGame,
   } = useGameState();
 
   const hasPlayedIntroRef = useRef(false);
@@ -200,7 +199,7 @@ export default function App() {
         <TurnTransition playerName={nextPlayer.name} onContinue={beginNextTurn} />
       )}
 
-      {phase === 'results' && <Leaderboard players={players} onRestart={resetGame} />}
+      {phase === 'results' && <Leaderboard players={players} />}
     </>
   );
 }

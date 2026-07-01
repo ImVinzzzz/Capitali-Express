@@ -49,8 +49,13 @@ function getOptionClasses(option: AnswerOption, feedback: FeedbackState): string
  */
 function FlagImage({ flagCode }: { flagCode: string }) {
   const [status, setStatus] = useState<'loading' | 'loaded' | 'error'>("loading");
-  const src = "https://flagcdn.com/w160/" + flagCode.toLowerCase() + ".png";
-  const src2x = "https://flagcdn.com/w320/" + flagCode.toLowerCase() + ".png";
+  const isCustom = flagCode.endsWith("-FLAG");
+  const src = isCustom
+    ? "/assets/" + flagCode + ".svg"
+    : "https://flagcdn.com/w160/" + flagCode.toLowerCase() + ".png";
+  const src2x = isCustom
+    ? src
+    : "https://flagcdn.com/w320/" + flagCode.toLowerCase() + ".png";
 
   return (
     <div className="relative mx-auto w-36 sm:w-44 border-2 border-[#1e293b] bg-[#050608] rounded" style={{ aspectRatio: "3/2" }}>

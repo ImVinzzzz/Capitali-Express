@@ -6,7 +6,7 @@
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faClock, faGlobe, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnswerOption, CurrentQuestion, FeedbackState, GameMode, Player, TURN_DURATION_SECONDS } from "../types";
 
 interface GameBoardProps {
@@ -150,6 +150,15 @@ export default function GameBoard({
   feedback,
   onSelect,
 }: GameBoardProps) {
+  useEffect(() => {
+    const audio = new Audio("/sounds/timer.mp3");
+    audio.play().catch((e) => console.log("Errore riproduzione timer.mp3:", e));
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
+
   const progress = Math.max(0, Math.min(100, (timeLeft / TURN_DURATION_SECONDS) * 100));
   const isUrgent = timeLeft <= 10;
   const barColor = isUrgent ? "#ff2d55" : timeLeft <= 20 ? "#ffe600" : "#00d8ff";

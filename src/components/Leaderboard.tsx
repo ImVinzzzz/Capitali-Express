@@ -4,6 +4,7 @@
 // atterrati (Arrivals) del tabellone aeroportuale.
 // ============================================================================
 
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRotateLeft, faPlane } from "@fortawesome/free-solid-svg-icons";
 import { Player } from "../types";
@@ -32,6 +33,23 @@ function rankPlayers(players: Player[]): RankedPlayer[] {
 }
 
 export default function Leaderboard({ players, onRestart }: LeaderboardProps) {
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    const audio = new Audio("/sounds/winner.mp3");
+    audio.play().catch((e) => console.log("Errore riproduzione winner.mp3:", e));
+
+    const timer = setTimeout(() => {
+      setShowButton(true);
+    }, 15000);
+
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+      clearTimeout(timer);
+    };
+  }, []);
+
   const ranked = rankPlayers(players);
   const winners = ranked.filter((p) => p.rank === 1);
   const isTie = winners.length > 1;
@@ -110,19 +128,20 @@ export default function Leaderboard({ players, onRestart }: LeaderboardProps) {
           </section>
 
           {/* Pulsante Rigioca */}
-          <div>
-            <button
-              type="button"
-              onClick={onRestart}
-              className="w-full rounded bg-transparent border-2 border-[#ffe600] hover:bg-[#ffe600]/10 text-[#ffe600] font-black uppercase tracking-[0.2em] text-sm py-3.5 flex items-center justify-center gap-2 transition-colors shadow-[0_0_15px_rgba(255,230,0,0.1)]"
-            >
-              <FontAwesomeIcon icon={faArrowRotateLeft} />
-              NUOVA TRATTA / RE-FLIGHT
-            </button>
-          </div>
+          {showButton && (
+            <div>
+              <button
+                type="button"
+                onClick={onRestart}
+                className="w-full rounded bg-transparent border-2 border-[#ffe600] hover:bg-[#ffe600]/10 text-[#ffe600] font-black uppercase tracking-[0.2em] text-sm py-3.5 flex items-center justify-center gap-2 transition-colors shadow-[0_0_15px_rgba(255,230,0,0.1)]"
+              >
+                <FontAwesomeIcon icon={faArrowRotateLeft} />
+                NUOVA TRATTA / RE-FLIGHT
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 }
-

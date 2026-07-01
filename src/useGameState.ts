@@ -164,7 +164,7 @@ export function useGameState(): UseGameStateResult {
       setTimeLeft(TURN_DURATION_SECONDS);
       generateNextQuestion(config.mode);
 
-      const urlTimer = import.meta.env.BASE_URL + "sounds/timer.mp3";
+      const urlTimer = import.meta.env.BASE_URL + "assets/sounds/timer.mp3";
       console.log("startGame: creazione/avvio di timerAudio con: " + urlTimer);
       if (!timerAudioRef.current) {
         timerAudioRef.current = new Audio(urlTimer);
@@ -275,7 +275,7 @@ export function useGameState(): UseGameStateResult {
     setTimeLeft(TURN_DURATION_SECONDS);
     generateNextQuestion(mode);
 
-    const urlTimer = import.meta.env.BASE_URL + "sounds/timer.mp3";
+    const urlTimer = import.meta.env.BASE_URL + "assets/sounds/timer.mp3";
     console.log("beginNextTurn: creazione/avvio di timerAudio con: " + urlTimer);
     if (!timerAudioRef.current) {
       timerAudioRef.current = new Audio(urlTimer);

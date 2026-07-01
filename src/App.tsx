@@ -78,10 +78,28 @@ export default function App() {
   } = useGameState();
 
   const hasPlayedIntroRef = useRef(false);
+  const toneAudioRef = useRef<HTMLAudioElement | null>(null);
+  const pilotAudioRef = useRef<HTMLAudioElement | null>(null);
+  const introTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const phaseRef = useRef(phase);
 
   useEffect(() => {
     phaseRef.current = phase;
+    if (phase === "playing") {
+      console.log("App: disattivazione pilot.mp3 e tone.mp3 (inizio gioco)");
+      if (introTimeoutRef.current !== null) {
+        clearTimeout(introTimeoutRef.current);
+        introTimeoutRef.current = null;
+      }
+      if (toneAudioRef.current) {
+        toneAudioRef.current.pause();
+        toneAudioRef.current.currentTime = 0;
+      }
+      if (pilotAudioRef.current) {
+        pilotAudioRef.current.pause();
+        pilotAudioRef.current.currentTime = 0;
+      }
+    }
   }, [phase]);
 
   useEffect(() => {
@@ -102,28 +120,35 @@ export default function App() {
       hasPlayedIntroRef.current = true;
       cleanup();
 
-      const urlTone = import.meta.env.BASE_URL + "sounds/tone.mp3";
+      const urlTone = import.meta.env.BASE_URL + "assets/sounds/tone.mp3";
       console.log("Creazione audio per tone: " + urlTone);
       const toneAudio = new Audio(urlTone);
+      toneAudioRef.current = toneAudio;
+
       console.log("Chiamata play() su toneAudio");
       toneAudio.play().then(() => {
         console.log("Riproduzione toneAudio avviata con successo");
-        toneAudio.addEventListener("ended", () => {
-          console.log("toneAudio terminato, creazione pilotAudio");
-          const urlPilot = import.meta.env.BASE_URL + "sounds/pilot.mp3";
-          const pilotAudio = new Audio(urlPilot);
-          console.log("Chiamata play() su pilotAudio: " + urlPilot);
-          pilotAudio.play().then(() => {
-            console.log("Riproduzione pilotAudio avviata con successo");
-          }).catch((err) => {
-            console.log("Errore riproduzione pilotAudio: " + err.message, err);
-          });
-        });
       }).catch((err) => {
         console.log("Errore riproduzione toneAudio: " + err.message, err);
-        hasPlayedIntroRef.current = false;
-        setupListeners();
       });
+
+      introTimeoutRef.current = setTimeout(() => {
+        if (phaseRef.current !== "setup") {
+          console.log("introTimeout: interrotto perche phase non e setup");
+          return;
+        }
+        const urlPilot = import.meta.env.BASE_URL + "assets/sounds/pilot.mp3";
+        console.log("Creazione audio per pilot: " + urlPilot);
+        const pilotAudio = new Audio(urlPilot);
+        pilotAudioRef.current = pilotAudio;
+
+        console.log("Chiamata play() su pilotAudio");
+        pilotAudio.play().then(() => {
+          console.log("Riproduzione pilotAudio avviata con successo");
+        }).catch((err) => {
+          console.log("Errore riproduzione pilotAudio: " + err.message, err);
+        });
+      }, 3000);
     };
 
     const setupListeners = () => {
@@ -144,7 +169,12 @@ export default function App() {
       setupListeners();
     }
 
-    return cleanup;
+    return () => {
+      cleanup();
+      if (introTimeoutRef.current !== null) {
+        clearTimeout(introTimeoutRef.current);
+      }
+    };
   }, []);
 
   return (

@@ -5,6 +5,7 @@
 // corrente restituita da useGameState.
 // ============================================================================
 
+import { useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faPlaneArrival } from '@fortawesome/free-solid-svg-icons';
 import GameSetup from './components/GameSetup';
@@ -75,6 +76,41 @@ export default function App() {
     beginNextTurn,
     resetGame,
   } = useGameState();
+
+  const hasPlayedIntroRef = useRef(false);
+
+  useEffect(() => {
+    if (phase === "setup" && !hasPlayedIntroRef.current) {
+      const playIntro = () => {
+        if (hasPlayedIntroRef.current) return;
+        hasPlayedIntroRef.current = true;
+
+        document.removeEventListener("click", playIntro);
+        document.removeEventListener("keydown", playIntro);
+
+        const toneAudio = new Audio("/sounds/tone.mp3");
+        toneAudio.play().then(() => {
+          toneAudio.addEventListener("ended", () => {
+            const pilotAudio = new Audio("/sounds/pilot.mp3");
+            pilotAudio.play().catch((e) => console.log("Errore audio pilot:", e));
+          });
+        }).catch((e) => {
+          console.log("Errore audio tone:", e);
+          hasPlayedIntroRef.current = false;
+          document.addEventListener("click", playIntro);
+          document.addEventListener("keydown", playIntro);
+        });
+      };
+
+      document.addEventListener("click", playIntro);
+      document.addEventListener("keydown", playIntro);
+
+      return () => {
+        document.removeEventListener("click", playIntro);
+        document.removeEventListener("keydown", playIntro);
+      };
+    }
+  }, [phase]);
 
   return (
     <>

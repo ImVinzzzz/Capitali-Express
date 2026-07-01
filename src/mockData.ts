@@ -121,7 +121,7 @@ export const COUNTRIES: CountryData[] = [
 
 
   // ==========================================================================
-  // AVANZATO — 90 paesi - FIRST CLASS
+  // AVANZATO — 95 paesi - FIRST CLASS
   // ==========================================================================
 
   // Europa
@@ -130,6 +130,7 @@ export const COUNTRIES: CountryData[] = [
   { id: 'mk', country: 'Macedonia del Nord',   capital: 'Skopje',             difficulty: 'avanzato', flagCode: 'MK' },
   { id: 'si', country: 'Slovenia',             capital: 'Lubiana',            difficulty: 'avanzato', flagCode: 'SI' },
   { id: 'xk', country: 'Kosovo',               capital: 'Pristina',           difficulty: 'avanzato', flagCode: 'XK' },
+  { id: 'xt', country: 'Transnistria',         capital: 'Tiraspol',           difficulty: 'avanzato', flagCode: 'XT-FLAG' },
 
   // Americhe settentrionali e Caraibi
   { id: 'ag', country: 'Antigua e Barbuda',         capital: "Saint John's",  difficulty: 'avanzato', flagCode: 'AG' },
@@ -194,6 +195,7 @@ export const COUNTRIES: CountryData[] = [
   { id: 'ug', country: 'Uganda',                   capital: 'Kampala',         difficulty: 'avanzato', flagCode: 'UG' },
   { id: 'zm', country: 'Zambia',                   capital: 'Lusaka',          difficulty: 'avanzato', flagCode: 'ZM' },
   { id: 'zw', country: 'Zimbabwe',                 capital: 'Harare',          difficulty: 'avanzato', flagCode: 'ZW' },
+  { id: 'xs', country: 'Somaliland', capital: 'Hargheisa', difficulty: 'avanzato', flagCode: 'XS-FLAG' },
 
   // Asia
   { id: 'am', country: 'Armenia',      capital: 'Yerevan',              difficulty: 'avanzato', flagCode: 'AM' },
@@ -213,13 +215,14 @@ export const COUNTRIES: CountryData[] = [
   { id: 'np', country: 'Nepal',        capital: 'Kathmandu',            difficulty: 'avanzato', flagCode: 'NP' },
   { id: 'om', country: 'Oman',         capital: 'Mascate',              difficulty: 'avanzato', flagCode: 'OM' },
   { id: 'pw', country: 'Palau',        capital: 'Ngerulmud',            difficulty: 'avanzato', flagCode: 'PW' },
-  { id: 'ox', country: 'Ossezia del Sud',      capital: 'Tskhinvali',   difficulty: 'avanzato', flagCode: 'GE' },
   { id: 'lk', country: 'Sri Lanka',    capital: 'Sri Jayawardenepura Kotte', difficulty: 'avanzato', flagCode: 'LK' },
   { id: 'tj', country: 'Tagikistan',   capital: 'Dushanbe',             difficulty: 'avanzato', flagCode: 'TJ' },
   { id: 'tl', country: 'Timor Est',    capital: 'Dili',                 difficulty: 'avanzato', flagCode: 'TL' },
   { id: 'tm', country: 'Turkmenistan', capital: 'Ashgabat',             difficulty: 'avanzato', flagCode: 'TM' },
-  { id: 'uz', country: '',   capital: 'Tashkent',             difficulty: 'avanzato', flagCode: 'UZ' },
+  { id: 'uz', country: 'Uzbekistan',   capital: 'Tashkent',             difficulty: 'avanzato', flagCode: 'UZ' },
   { id: 'ye', country: 'Yemen',        capital: "Sana'a",               difficulty: 'avanzato', flagCode: 'YE' },
+  { id: 'ps', country: 'Palestina',    capital: 'Ramallah',             difficulty: 'avanzato', flagCode: 'PS' },
+  { id: 'ox', country: 'Ossezia del Sud',      capital: 'Tskhinvali',   difficulty: 'avanzato', flagCode: 'OX-FLAG' },
 
   // Oceania
   { id: 'fj', country: 'Figi',              capital: 'Suva',           difficulty: 'avanzato', flagCode: 'FJ' },
@@ -233,6 +236,7 @@ export const COUNTRIES: CountryData[] = [
   { id: 'to', country: 'Tonga',             capital: "Nuku'Alofa",     difficulty: 'avanzato', flagCode: 'TO' },
   { id: 'tv', country: 'Tuvalu',            capital: 'Funafuti',       difficulty: 'avanzato', flagCode: 'TV' },
   { id: 'vu', country: 'Vanuatu',           capital: 'Port Vila',      difficulty: 'avanzato', flagCode: 'VU' },
+  { id: 'nu', country: 'Niue',              capital: 'Alofi',          difficulty: 'avanzato', flagCode: 'NU' },
 ];
 
 /** Restituisce tutte le voci appartenenti a un dato livello di difficoltà. */

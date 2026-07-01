@@ -195,7 +195,7 @@ export const COUNTRIES: CountryData[] = [
   { id: 'ug', country: 'Uganda',                   capital: 'Kampala',         difficulty: 'avanzato', flagCode: 'UG' },
   { id: 'zm', country: 'Zambia',                   capital: 'Lusaka',          difficulty: 'avanzato', flagCode: 'ZM' },
   { id: 'zw', country: 'Zimbabwe',                 capital: 'Harare',          difficulty: 'avanzato', flagCode: 'ZW' },
-  { id: 'xs', country: 'Somaliland', capital: 'Hargheisa', difficulty: 'avanzato', flagCode: 'XS-FLAG' },
+  { id: 'xs', country: 'Somaliland',               capital: 'Hargheisa',       difficulty: 'avanzato', flagCode: 'XS-FLAG' },
 
   // Asia
   { id: 'am', country: 'Armenia',      capital: 'Yerevan',              difficulty: 'avanzato', flagCode: 'AM' },

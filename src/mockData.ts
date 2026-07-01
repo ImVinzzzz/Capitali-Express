@@ -211,8 +211,8 @@ export const COUNTRIES: CountryData[] = [
   { id: 'mn', country: 'Mongolia',     capital: 'Ulaanbaatar',          difficulty: 'avanzato', flagCode: 'MN' },
   { id: 'mm', country: 'Myanmar',      capital: 'Naypyidaw',            difficulty: 'avanzato', flagCode: 'MM' },
   { id: 'np', country: 'Nepal',        capital: 'Kathmandu',            difficulty: 'avanzato', flagCode: 'NP' },
-  // da OMAN in poi
   { id: 'om', country: 'Oman',         capital: 'Mascate',              difficulty: 'avanzato', flagCode: 'OM' },
+  // da PALAU in poi
   { id: 'pw', country: 'Palau',        capital: 'Ngerulmud',            difficulty: 'avanzato', flagCode: 'PW' },
   { id: 'lk', country: 'Sri Lanka',    capital: 'Sri Jayawardenepura Kotte', difficulty: 'avanzato', flagCode: 'LK' },
   { id: 'tj', country: 'Tagikistan',   capital: 'Dushanbe',             difficulty: 'avanzato', flagCode: 'TJ' },

@@ -212,8 +212,8 @@ export const COUNTRIES: CountryData[] = [
   { id: 'mm', country: 'Myanmar',      capital: 'Naypyidaw',            difficulty: 'avanzato', flagCode: 'MM' },
   { id: 'np', country: 'Nepal',        capital: 'Kathmandu',            difficulty: 'avanzato', flagCode: 'NP' },
   { id: 'om', country: 'Oman',         capital: 'Mascate',              difficulty: 'avanzato', flagCode: 'OM' },
-  // da PALAU in poi
   { id: 'pw', country: 'Palau',        capital: 'Ngerulmud',            difficulty: 'avanzato', flagCode: 'PW' },
+  // da SRY LANKA in poi - inserire OSSEZIA con flagCode GE
   { id: 'lk', country: 'Sri Lanka',    capital: 'Sri Jayawardenepura Kotte', difficulty: 'avanzato', flagCode: 'LK' },
   { id: 'tj', country: 'Tagikistan',   capital: 'Dushanbe',             difficulty: 'avanzato', flagCode: 'TJ' },
   { id: 'tl', country: 'Timor Est',    capital: 'Dili',                 difficulty: 'avanzato', flagCode: 'TL' },

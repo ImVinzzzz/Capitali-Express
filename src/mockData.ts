@@ -12,7 +12,7 @@ import type { CountryData, Difficulty } from './types';
 export const COUNTRIES: CountryData[] = [
 
   // ==========================================================================
-  // FACILE — 24 paesi
+  // FACILE / MEDIO — 96 paesi
   // ==========================================================================
 
   // Europa
@@ -27,15 +27,69 @@ export const COUNTRIES: CountryData[] = [
   { id: 'hu', country: 'Ungheria',        capital: 'Budapest',   difficulty: 'facile', flagCode: 'HU' },
   { id: 'ie', country: 'Irlanda',         capital: 'Dublino',    difficulty: 'facile', flagCode: 'IE' },
   { id: 'dk', country: 'Danimarca',       capital: 'Copenaghen', difficulty: 'facile', flagCode: 'DK' },
+  { id: 'pt', country: 'Portogallo',             capital: 'Lisbona',      difficulty: 'facile', flagCode: 'PT' },
+  { id: 'nl', country: 'Paesi Bassi',            capital: 'Amsterdam',    difficulty: 'facile', flagCode: 'NL' },
+  { id: 'se', country: 'Svezia',                 capital: 'Stoccolma',    difficulty: 'facile', flagCode: 'SE' },
+  { id: 'no', country: 'Norvegia',               capital: 'Oslo',         difficulty: 'facile', flagCode: 'NO' },
+  { id: 'fi', country: 'Finlandia',              capital: 'Helsinki',     difficulty: 'facile', flagCode: 'FI' },
+  { id: 'pl', country: 'Polonia',                capital: 'Varsavia',     difficulty: 'facile', flagCode: 'PL' },
+  { id: 'cz', country: 'Repubblica Ceca',        capital: 'Praga',        difficulty: 'facile', flagCode: 'CZ' },
+  { id: 'ro', country: 'Romania',                capital: 'Bucarest',     difficulty: 'facile', flagCode: 'RO' },
+  { id: 'ua', country: 'Ucraina',                capital: 'Kiev',         difficulty: 'facile', flagCode: 'UA' },
+  { id: 'by', country: 'Bielorussia',            capital: 'Minsk',        difficulty: 'facile', flagCode: 'BY' },
+  { id: 'rs', country: 'Serbia',                 capital: 'Belgrado',     difficulty: 'facile', flagCode: 'RS' },
+  { id: 'hr', country: 'Croazia',                capital: 'Zagabria',     difficulty: 'facile', flagCode: 'HR' },
+  { id: 'bg', country: 'Bulgaria',               capital: 'Sofia',        difficulty: 'facile', flagCode: 'BG' },
+  { id: 'sk', country: 'Slovacchia',             capital: 'Bratislava',   difficulty: 'facile', flagCode: 'SK' },
+  { id: 'ba', country: 'Bosnia ed Erzegovina',   capital: 'Sarajevo',     difficulty: 'facile', flagCode: 'BA' },
+  { id: 'is', country: 'Islanda',                capital: 'Reykjavík',    difficulty: 'facile', flagCode: 'IS' },
+  { id: 'ch', country: 'Svizzera',               capital: 'Berna',              difficulty: 'facile', flagCode: 'CH' },
+  { id: 'al', country: 'Albania',                capital: 'Tirana',             difficulty: 'facile', flagCode: 'AL' },
+  { id: 'ad', country: 'Andorra',                capital: 'Andorra la Vella',   difficulty: 'facile', flagCode: 'AD' },
+  { id: 'lu', country: 'Lussemburgo',          capital: 'Lussemburgo',            difficulty: 'avanzato', flagCode: 'LU' },
+  { id: 'mt', country: 'Malta',                capital: 'La Valletta',            difficulty: 'avanzato', flagCode: 'MT' },
+  { id: 'li', country: 'Liechtenstein',        capital: 'Vaduz',                  difficulty: 'avanzato', flagCode: 'LI' },
+  { id: 'sm', country: 'San Marino',           capital: 'Città di San Marino',    difficulty: 'avanzato', flagCode: 'SM' },
+  { id: 'va', country: 'Città del Vaticano',   capital: 'Città del Vaticano',     difficulty: 'avanzato', flagCode: 'VA' },
+  { id: 'cy', country: 'Cipro',                capital: 'Nicosia',                difficulty: 'avanzato', flagCode: 'CY' },
+  { id: 'ee', country: 'Estonia',              capital: 'Tallinn',                difficulty: 'facile', flagCode: 'EE' },
+  { id: 'lv', country: 'Lettonia',             capital: 'Riga',                   difficulty: 'facile', flagCode: 'LV' },
+  { id: 'lt', country: 'Lituania',             capital: 'Vilnius',                difficulty: 'facile', flagCode: 'LT' },
+  { id: 'mc', country: 'Monaco',               capital: 'Monaco',                 difficulty: 'facile', flagCode: 'MC' },
 
   // Americhe
   { id: 'us', country: 'Stati Uniti',     capital: 'Washington', difficulty: 'facile', flagCode: 'US' },
   { id: 'ca', country: 'Canada',          capital: 'Ottawa',     difficulty: 'facile', flagCode: 'CA' },
   { id: 'cu', country: 'Cuba',            capital: "L'Avana",    difficulty: 'facile', flagCode: 'CU' },
   { id: 'cl', country: 'Cile',            capital: 'Santiago',   difficulty: 'facile', flagCode: 'CL' },
+  { id: 'ar', country: 'Argentina',              capital: 'Buenos Aires',        difficulty: 'facile', flagCode: 'AR' },
+  { id: 'br', country: 'Brasile',                capital: 'Brasília',            difficulty: 'facile', flagCode: 'BR' },
+  { id: 'mx', country: 'Messico',                capital: 'Città del Messico',   difficulty: 'facile', flagCode: 'MX' },
+  { id: 'co', country: 'Colombia',               capital: 'Bogotà',              difficulty: 'facile', flagCode: 'CO' },
+  { id: 've', country: 'Venezuela',              capital: 'Caracas',             difficulty: 'facile', flagCode: 'VE' },
+  { id: 'pe', country: 'Perù',                   capital: 'Lima',                difficulty: 'facile', flagCode: 'PE' },
+  { id: 'uy', country: 'Uruguay',                capital: 'Montevideo',          difficulty: 'facile', flagCode: 'UY' },
+  { id: 'ec', country: 'Ecuador',                capital: 'Quito',               difficulty: 'facile', flagCode: 'EC' },
+  { id: 'gt', country: 'Guatemala',              capital: 'Città del Guatemala', difficulty: 'facile', flagCode: 'GT' },
+  { id: 'do', country: 'Repubblica Dominicana',  capital: 'Santo Domingo',       difficulty: 'facile', flagCode: 'DO' },
+  { id: 'cr', country: 'Costa Rica',             capital: 'San José',            difficulty: 'facile', flagCode: 'CR' },
+  { id: 'jm', country: 'Giamaica',               capital: 'Kingston',            difficulty: 'facile', flagCode: 'JM' },
+  { id: 'ni', country: 'Nicaragua',              capital: 'Managua',             difficulty: 'facile', flagCode: 'NI' },
+  { id: 'pa', country: 'Panama',                 capital: 'Ciudad de Panamá',    difficulty: 'facile', flagCode: 'PA' },
+  { id: 'sv', country: 'El Salvador',            capital: 'San Salvador',        difficulty: 'facile', flagCode: 'SV' },
 
   // Africa
-  { id: 'eg', country: 'Egitto',          capital: 'Il Cairo',   difficulty: 'facile', flagCode: 'EG' },
+  { id: 'eg', country: 'Egitto',      capital: 'Il Cairo',      difficulty: 'facile', flagCode: 'EG' },
+  { id: 'za', country: 'Sudafrica',   capital: 'Pretoria',      difficulty: 'facile', flagCode: 'ZA' },
+  { id: 'dz', country: 'Algeria',     capital: 'Algeri',        difficulty: 'facile', flagCode: 'DZ' },
+  { id: 'ma', country: 'Marocco',     capital: 'Rabat',         difficulty: 'facile', flagCode: 'MA' },
+  { id: 'tn', country: 'Tunisia',     capital: 'Tunisi',        difficulty: 'facile', flagCode: 'TN' },
+  { id: 'ly', country: 'Libia',       capital: 'Tripoli',       difficulty: 'facile', flagCode: 'LY' },
+  { id: 'ng', country: 'Nigeria',     capital: 'Abuja',         difficulty: 'facile', flagCode: 'NG' },
+  { id: 'ke', country: 'Kenya',       capital: 'Nairobi',       difficulty: 'facile', flagCode: 'KE' },
+  { id: 'et', country: 'Etiopia',     capital: 'Addis Abeba',   difficulty: 'facile', flagCode: 'ET' },
+  { id: 'sd', country: 'Sudan',       capital: 'Khartum',       difficulty: 'facile', flagCode: 'SD' },
+  { id: 'sn', country: 'Senegal',     capital: 'Dakar',         difficulty: 'facile', flagCode: 'SN' },
 
   // Asia
   { id: 'ru', country: 'Russia',          capital: 'Mosca',      difficulty: 'facile', flagCode: 'RU' },
@@ -46,101 +100,37 @@ export const COUNTRIES: CountryData[] = [
   { id: 'sa', country: 'Arabia Saudita',  capital: 'Riad',       difficulty: 'facile', flagCode: 'SA' },
   { id: 'th', country: 'Thailandia',      capital: 'Bangkok',    difficulty: 'facile', flagCode: 'TH' },
   { id: 'sg', country: 'Singapore',       capital: 'Singapore',  difficulty: 'facile', flagCode: 'SG' },
-
-
-  // ==========================================================================
-  // MEDIO — 56 paesi
-  // ==========================================================================
-
-  // Europa
-  { id: 'pt', country: 'Portogallo',             capital: 'Lisbona',      difficulty: 'medio', flagCode: 'PT' },
-  { id: 'nl', country: 'Paesi Bassi',            capital: 'Amsterdam',    difficulty: 'medio', flagCode: 'NL' },
-  { id: 'se', country: 'Svezia',                 capital: 'Stoccolma',    difficulty: 'medio', flagCode: 'SE' },
-  { id: 'no', country: 'Norvegia',               capital: 'Oslo',         difficulty: 'medio', flagCode: 'NO' },
-  { id: 'fi', country: 'Finlandia',              capital: 'Helsinki',     difficulty: 'medio', flagCode: 'FI' },
-  { id: 'pl', country: 'Polonia',                capital: 'Varsavia',     difficulty: 'medio', flagCode: 'PL' },
-  { id: 'cz', country: 'Repubblica Ceca',        capital: 'Praga',        difficulty: 'medio', flagCode: 'CZ' },
-  { id: 'ro', country: 'Romania',                capital: 'Bucarest',     difficulty: 'medio', flagCode: 'RO' },
-  { id: 'ua', country: 'Ucraina',                capital: 'Kyiv',         difficulty: 'medio', flagCode: 'UA' },
-  { id: 'by', country: 'Bielorussia',            capital: 'Minsk',        difficulty: 'medio', flagCode: 'BY' },
-  { id: 'rs', country: 'Serbia',                 capital: 'Belgrado',     difficulty: 'medio', flagCode: 'RS' },
-  { id: 'hr', country: 'Croazia',                capital: 'Zagabria',     difficulty: 'medio', flagCode: 'HR' },
-  { id: 'bg', country: 'Bulgaria',               capital: 'Sofia',        difficulty: 'medio', flagCode: 'BG' },
-  { id: 'sk', country: 'Slovacchia',             capital: 'Bratislava',   difficulty: 'medio', flagCode: 'SK' },
-  { id: 'ba', country: 'Bosnia ed Erzegovina',   capital: 'Sarajevo',     difficulty: 'medio', flagCode: 'BA' },
-  { id: 'is', country: 'Islanda',                capital: 'Reykjavík',    difficulty: 'medio', flagCode: 'IS' },
-
-  // Americhe
-  { id: 'ar', country: 'Argentina',              capital: 'Buenos Aires',        difficulty: 'medio', flagCode: 'AR' },
-  { id: 'br', country: 'Brasile',                capital: 'Brasília',            difficulty: 'medio', flagCode: 'BR' },
-  { id: 'mx', country: 'Messico',                capital: 'Città del Messico',   difficulty: 'medio', flagCode: 'MX' },
-  { id: 'co', country: 'Colombia',               capital: 'Bogotà',              difficulty: 'medio', flagCode: 'CO' },
-  { id: 've', country: 'Venezuela',              capital: 'Caracas',             difficulty: 'medio', flagCode: 'VE' },
-  { id: 'pe', country: 'Perù',                   capital: 'Lima',                difficulty: 'medio', flagCode: 'PE' },
-  { id: 'uy', country: 'Uruguay',                capital: 'Montevideo',          difficulty: 'medio', flagCode: 'UY' },
-  { id: 'ec', country: 'Ecuador',                capital: 'Quito',               difficulty: 'medio', flagCode: 'EC' },
-  { id: 'gt', country: 'Guatemala',              capital: 'Città del Guatemala', difficulty: 'medio', flagCode: 'GT' },
-  { id: 'do', country: 'Repubblica Dominicana',  capital: 'Santo Domingo',       difficulty: 'medio', flagCode: 'DO' },
-  { id: 'cr', country: 'Costa Rica',             capital: 'San José',            difficulty: 'medio', flagCode: 'CR' },
-  { id: 'jm', country: 'Giamaica',               capital: 'Kingston',            difficulty: 'medio', flagCode: 'JM' },
-
-  // Africa
-  { id: 'za', country: 'Sudafrica',   capital: 'Pretoria',      difficulty: 'medio', flagCode: 'ZA' },
-  { id: 'dz', country: 'Algeria',     capital: 'Algeri',        difficulty: 'medio', flagCode: 'DZ' },
-  { id: 'ma', country: 'Marocco',     capital: 'Rabat',         difficulty: 'medio', flagCode: 'MA' },
-  { id: 'tn', country: 'Tunisia',     capital: 'Tunisi',        difficulty: 'medio', flagCode: 'TN' },
-  { id: 'ly', country: 'Libia',       capital: 'Tripoli',       difficulty: 'medio', flagCode: 'LY' },
-  { id: 'ng', country: 'Nigeria',     capital: 'Abuja',         difficulty: 'medio', flagCode: 'NG' },
-  { id: 'ke', country: 'Kenya',       capital: 'Nairobi',       difficulty: 'medio', flagCode: 'KE' },
-  { id: 'et', country: 'Etiopia',     capital: 'Addis Abeba',   difficulty: 'medio', flagCode: 'ET' },
-  { id: 'sd', country: 'Sudan',       capital: 'Khartum',       difficulty: 'medio', flagCode: 'SD' },
-  { id: 'sn', country: 'Senegal',     capital: 'Dakar',         difficulty: 'medio', flagCode: 'SN' },
-
-  // Asia
-  { id: 'tr', country: 'Turchia',             capital: 'Ankara',        difficulty: 'medio', flagCode: 'TR' },
-  { id: 'ir', country: 'Iran',                capital: 'Teheran',       difficulty: 'medio', flagCode: 'IR' },
-  { id: 'iq', country: 'Iraq',                capital: 'Baghdad',       difficulty: 'medio', flagCode: 'IQ' },
-  { id: 'pk', country: 'Pakistan',            capital: 'Islamabad',     difficulty: 'medio', flagCode: 'PK' },
-  { id: 'af', country: 'Afghanistan',         capital: 'Kabul',         difficulty: 'medio', flagCode: 'AF' },
-  { id: 'sy', country: 'Siria',               capital: 'Damasco',       difficulty: 'medio', flagCode: 'SY' },
-  { id: 'lb', country: 'Libano',              capital: 'Beirut',        difficulty: 'medio', flagCode: 'LB' },
-  { id: 'jo', country: 'Giordania',           capital: 'Amman',         difficulty: 'medio', flagCode: 'JO' },
-  { id: 'ae', country: 'Emirati Arabi Uniti', capital: 'Abu Dhabi',     difficulty: 'medio', flagCode: 'AE' },
-  { id: 'qa', country: 'Qatar',               capital: 'Doha',          difficulty: 'medio', flagCode: 'QA' },
-  { id: 'kp', country: 'Corea del Nord',      capital: 'Pyongyang',     difficulty: 'medio', flagCode: 'KP' },
-  { id: 'vn', country: 'Vietnam',             capital: 'Hanoi',         difficulty: 'medio', flagCode: 'VN' },
-  { id: 'my', country: 'Malaysia',            capital: 'Kuala Lumpur',  difficulty: 'medio', flagCode: 'MY' },
-  { id: 'ph', country: 'Filippine',           capital: 'Manila',        difficulty: 'medio', flagCode: 'PH' },
-  { id: 'id', country: 'Indonesia',           capital: 'Giacarta',      difficulty: 'medio', flagCode: 'ID' },
-  { id: 'tw', country: 'Taiwan',              capital: 'Taipei',        difficulty: 'medio', flagCode: 'TW' },
+  { id: 'tr', country: 'Turchia',             capital: 'Ankara',        difficulty: 'facile', flagCode: 'TR' },
+  { id: 'ir', country: 'Iran',                capital: 'Teheran',       difficulty: 'facile', flagCode: 'IR' },
+  { id: 'iq', country: 'Iraq',                capital: 'Baghdad',       difficulty: 'facile', flagCode: 'IQ' },
+  { id: 'pk', country: 'Pakistan',            capital: 'Islamabad',     difficulty: 'facile', flagCode: 'PK' },
+  { id: 'af', country: 'Afghanistan',         capital: 'Kabul',         difficulty: 'facile', flagCode: 'AF' },
+  { id: 'sy', country: 'Siria',               capital: 'Damasco',       difficulty: 'facile', flagCode: 'SY' },
+  { id: 'lb', country: 'Libano',              capital: 'Beirut',        difficulty: 'facile', flagCode: 'LB' },
+  { id: 'jo', country: 'Giordania',           capital: 'Amman',         difficulty: 'facile', flagCode: 'JO' },
+  { id: 'ae', country: 'Emirati Arabi Uniti', capital: 'Abu Dhabi',     difficulty: 'facile', flagCode: 'AE' },
+  { id: 'qa', country: 'Qatar',               capital: 'Doha',          difficulty: 'facile', flagCode: 'QA' },
+  { id: 'kp', country: 'Corea del Nord',      capital: 'Pyongyang',     difficulty: 'facile', flagCode: 'KP' },
+  { id: 'vn', country: 'Vietnam',             capital: 'Hanoi',         difficulty: 'facile', flagCode: 'VN' },
+  { id: 'my', country: 'Malaysia',            capital: 'Kuala Lumpur',  difficulty: 'facile', flagCode: 'MY' },
+  { id: 'ph', country: 'Filippine',           capital: 'Manila',        difficulty: 'facile', flagCode: 'PH' },
+  { id: 'id', country: 'Indonesia',           capital: 'Giacarta',      difficulty: 'facile', flagCode: 'ID' },
+  { id: 'tw', country: 'Taiwan',              capital: 'Taipei',        difficulty: 'facile', flagCode: 'TW' },
 
   // Oceania
-  { id: 'au', country: 'Australia',   capital: 'Canberra',   difficulty: 'medio', flagCode: 'AU' },
-  { id: 'nz', country: 'Nuova Zelanda', capital: 'Wellington', difficulty: 'medio', flagCode: 'NZ' },
+  { id: 'au', country: 'Australia',   capital: 'Canberra',   difficulty: 'facile', flagCode: 'AU' },
+  { id: 'nz', country: 'Nuova Zelanda', capital: 'Wellington', difficulty: 'facile', flagCode: 'NZ' },
 
 
   // ==========================================================================
-  // AVANZATO — 111 paesi
+  // AVANZATO — 92 paesi
   // ==========================================================================
 
   // Europa
-  { id: 'ch', country: 'Svizzera',             capital: 'Berna',              difficulty: 'avanzato', flagCode: 'CH' },
-  { id: 'al', country: 'Albania',              capital: 'Tirana',             difficulty: 'avanzato', flagCode: 'AL' },
-  { id: 'ad', country: 'Andorra',              capital: 'Andorra la Vella',   difficulty: 'avanzato', flagCode: 'AD' },
-  { id: 'cy', country: 'Cipro',                capital: 'Nicosia',            difficulty: 'avanzato', flagCode: 'CY' },
-  { id: 'ee', country: 'Estonia',              capital: 'Tallinn',            difficulty: 'avanzato', flagCode: 'EE' },
-  { id: 'lv', country: 'Lettonia',             capital: 'Riga',               difficulty: 'avanzato', flagCode: 'LV' },
-  { id: 'lt', country: 'Lituania',             capital: 'Vilnius',            difficulty: 'avanzato', flagCode: 'LT' },
-  { id: 'lu', country: 'Lussemburgo',          capital: 'Lussemburgo',        difficulty: 'avanzato', flagCode: 'LU' },
-  { id: 'mt', country: 'Malta',                capital: 'La Valletta',        difficulty: 'avanzato', flagCode: 'MT' },
   { id: 'md', country: 'Moldova',              capital: 'Chișinău',           difficulty: 'avanzato', flagCode: 'MD' },
-  { id: 'mc', country: 'Monaco',               capital: 'Monaco',             difficulty: 'avanzato', flagCode: 'MC' },
   { id: 'me', country: 'Montenegro',           capital: 'Podgorica',          difficulty: 'avanzato', flagCode: 'ME' },
   { id: 'mk', country: 'Macedonia del Nord',   capital: 'Skopje',             difficulty: 'avanzato', flagCode: 'MK' },
   { id: 'si', country: 'Slovenia',             capital: 'Lubiana',            difficulty: 'avanzato', flagCode: 'SI' },
-  { id: 'li', country: 'Liechtenstein',        capital: 'Vaduz',              difficulty: 'avanzato', flagCode: 'LI' },
-  { id: 'sm', country: 'San Marino',           capital: 'San Marino',         difficulty: 'avanzato', flagCode: 'SM' },
-  { id: 'va', country: 'Città del Vaticano',   capital: 'Città del Vaticano', difficulty: 'avanzato', flagCode: 'VA' },
   { id: 'xk', country: 'Kosovo',               capital: 'Pristina',           difficulty: 'avanzato', flagCode: 'XK' },
 
   // Americhe settentrionali e Caraibi
@@ -149,7 +139,6 @@ export const COUNTRIES: CountryData[] = [
   { id: 'bb', country: 'Barbados',                  capital: 'Bridgetown',     difficulty: 'avanzato', flagCode: 'BB' },
   { id: 'bz', country: 'Belize',                    capital: 'Belmopan',       difficulty: 'avanzato', flagCode: 'BZ' },
   { id: 'dm', country: 'Dominica',                  capital: 'Roseau',         difficulty: 'avanzato', flagCode: 'DM' },
-  { id: 'sv', country: 'El Salvador',               capital: 'San Salvador',   difficulty: 'avanzato', flagCode: 'SV' },
   { id: 'gd', country: 'Grenada',                   capital: "Saint George's", difficulty: 'avanzato', flagCode: 'GD' },
   { id: 'ht', country: 'Haiti',                     capital: 'Port-au-Prince', difficulty: 'avanzato', flagCode: 'HT' },
   { id: 'hn', country: 'Honduras',                  capital: 'Tegucigalpa',    difficulty: 'avanzato', flagCode: 'HN' },
@@ -157,8 +146,6 @@ export const COUNTRIES: CountryData[] = [
   { id: 'lc', country: 'Saint Lucia',               capital: 'Castries',       difficulty: 'avanzato', flagCode: 'LC' },
   { id: 'vc', country: 'Saint Vincent e Grenadine', capital: 'Kingstown',      difficulty: 'avanzato', flagCode: 'VC' },
   { id: 'tt', country: 'Trinidad e Tobago',         capital: 'Port of Spain',  difficulty: 'avanzato', flagCode: 'TT' },
-  { id: 'ni', country: 'Nicaragua',                 capital: 'Managua',        difficulty: 'avanzato', flagCode: 'NI' },
-  { id: 'pa', country: 'Panama',                    capital: 'Città di Panama',difficulty: 'avanzato', flagCode: 'PA' },
 
   // Americhe meridionali
   { id: 'bo', country: 'Bolivia',       capital: 'Sucre',        difficulty: 'avanzato', flagCode: 'BO' },
@@ -247,7 +234,7 @@ export const COUNTRIES: CountryData[] = [
   { id: 'pg', country: 'Papua Nuova Guinea',capital: 'Port Moresby',   difficulty: 'avanzato', flagCode: 'PG' },
   { id: 'ws', country: 'Samoa',             capital: 'Apia',           difficulty: 'avanzato', flagCode: 'WS' },
   { id: 'sb', country: 'Isole Salomone',    capital: 'Honiara',        difficulty: 'avanzato', flagCode: 'SB' },
-  { id: 'to', country: 'Tonga',             capital: "Nuku'alofa",     difficulty: 'avanzato', flagCode: 'TO' },
+  { id: 'to', country: 'Tonga',             capital: "Nuku'Alofa",     difficulty: 'avanzato', flagCode: 'TO' },
   { id: 'tv', country: 'Tuvalu',            capital: 'Funafuti',       difficulty: 'avanzato', flagCode: 'TV' },
   { id: 'vu', country: 'Vanuatu',           capital: 'Port Vila',      difficulty: 'avanzato', flagCode: 'VU' },
 ];

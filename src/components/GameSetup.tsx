@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBolt,
   faEarthAmericas,
+  faGaugeHigh,
   faMinus,
   faPlane,
   faPlus,
@@ -171,7 +172,7 @@ export default function GameSetup({ onStart }: GameSetupProps) {
           {/* Sezione classe di viaggio / difficoltà */}
           <section className="border border-[#1e293b] rounded bg-[#050608] p-4">
             <h2 className="flex items-center gap-2 text-xs sm:text-sm uppercase tracking-[0.2em] text-[#00d8ff] font-bold border-b border-[#1e293b] pb-2 mb-3">
-              <FontAwesomeIcon icon={faRoute} />
+              <FontAwesomeIcon icon={faGaugeHigh} />
               CLASSE DI VIAGGIO / DIFFICOLTÀ
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

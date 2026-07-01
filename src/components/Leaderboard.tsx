@@ -4,14 +4,13 @@
 // atterrati (Arrivals) del tabellone aeroportuale.
 // ============================================================================
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRotateLeft, faPlane } from "@fortawesome/free-solid-svg-icons";
+import { faPlane } from "@fortawesome/free-solid-svg-icons";
 import { Player } from "../types";
 
 interface LeaderboardProps {
   players: Player[];
-  onRestart: () => void;
 }
 
 interface RankedPlayer extends Player {
@@ -32,9 +31,7 @@ function rankPlayers(players: Player[]): RankedPlayer[] {
   });
 }
 
-export default function Leaderboard({ players, onRestart }: LeaderboardProps) {
-  const [showButton, setShowButton] = useState(false);
-
+export default function Leaderboard({ players }: LeaderboardProps) {
   useEffect(() => {
     const urlWinner = import.meta.env.BASE_URL + "assets/sounds/winner.mp3";
     console.log("Leaderboard: creazione/avvio di winnerAudio con: " + urlWinner);
@@ -43,15 +40,10 @@ export default function Leaderboard({ players, onRestart }: LeaderboardProps) {
       .then(() => console.log("Leaderboard: riproduzione winnerAudio avviata con successo"))
       .catch((e) => console.log("Leaderboard: Errore riproduzione winnerAudio: " + e.message, e));
 
-    const timer = setTimeout(() => {
-      setShowButton(true);
-    }, 15000);
-
     return () => {
       console.log("Leaderboard: arresto di winnerAudio");
       audio.pause();
       audio.currentTime = 0;
-      clearTimeout(timer);
     };
   }, []);
 
@@ -132,7 +124,7 @@ export default function Leaderboard({ players, onRestart }: LeaderboardProps) {
             </div>
           </section>
 
-          {/* Pulsante Rigioca */}
+          {/* Pulsante Rigioca - Commentato come richiesto per favorire il riavvio manuale
           {showButton && (
             <div>
               <button
@@ -145,6 +137,7 @@ export default function Leaderboard({ players, onRestart }: LeaderboardProps) {
               </button>
             </div>
           )}
+          */}
         </div>
       </div>
     </div>

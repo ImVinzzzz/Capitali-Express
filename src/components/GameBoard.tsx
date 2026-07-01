@@ -96,9 +96,41 @@ function MysteryDestination() {
   );
 }
 
+/**
+ * Carica l'immagine dal percorso locale /assets/{countryId}.jpg.
+ * Se l'immagine non è disponibile o fallisce il caricamento, mostra il placeholder MysteryDestination.
+ */
+function CountryImage({ countryId }: { countryId: string }) {
+  const [status, setStatus] = useState<"loading" | "loaded" | "error">("loading");
+  const src = "/assets/" + countryId.toLowerCase() + ".jpg";
+
+  if (status === "error") {
+    return <MysteryDestination />;
+  }
+
+  return (
+    <div className="relative mx-auto w-36 sm:w-44 border-2 border-[#1e293b] bg-[#050608] rounded" style={{ aspectRatio: "3/2" }}>
+      {status === "loading" && (
+        <div className="absolute inset-0 bg-[#1e293b] animate-pulse" />
+      )}
+      <img
+        src={src}
+        alt={"Paese " + countryId}
+        loading="eager"
+        decoding="async"
+        onLoad={() => setStatus("loaded")}
+        onError={() => setStatus("error")}
+        className={"w-full h-full object-cover transition-opacity duration-300 " + (
+          status === "loaded" ? "opacity-100" : "opacity-0"
+        )}
+      />
+    </div>
+  );
+}
+
 function FlagDisplay({ question, mode }: { question: CurrentQuestion; mode: GameMode }) {
   if (mode === "country") {
-    return <MysteryDestination />;
+    return <CountryImage key={question.country.id} countryId={question.country.id} />;
   }
   return <FlagImage key={question.country.flagCode} flagCode={question.country.flagCode} />;
 }
